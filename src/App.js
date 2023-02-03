@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 import SearchBar from './components/SearchBar.jsx'
 
 function App() {
-  const [flights, setflights] = useState([]);
+  const [flights, setFlights] = useState([]);
     useEffect(() => {
         fetch('https://flights-api-production.up.railway.app/api/flights')
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
-                setflights(data)
+                setFlights(data)
             })
             .catch((error) =>{
                 console.log(error.message);
@@ -18,7 +18,7 @@ function App() {
 
   return (
    <div className='App'>
-    <h1>Hola Usuario</h1>
+    <h1>Bienvenido a InDatumFlight</h1>
     <SearchBar/>
    </div>
   );

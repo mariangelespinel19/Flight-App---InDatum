@@ -4,26 +4,35 @@ export default function SearchBar(){
         <div>
             <input
                 type= "text"
-                placeholder = "origin city"
+                placeholder = "City From"
             />
 
             <input
                 type= "text"
-                placeholder = "destiny city"
+                placeholder = "City to"
             />
 
             <input
+                type= "date"
+                placeholder = "Departure date"
+            />
+
+
+            <input
                 type= "number"
-                placeholder = "number of passengers"
+                placeholder = "Number of passengers"
             />
 
             <input
                 type= "text"
                 placeholder = "search"
             />
-
+            <button type ="submit">
+                Search
+            </button>    
             
         </div>
     )
+
 }
  
