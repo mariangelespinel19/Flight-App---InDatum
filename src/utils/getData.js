@@ -1,3 +1,14 @@
+async function getFlightId (id) {
+    try{
+        const url = `https://flights-api-production.up.railway.app/api/flights/${id}`
+        const flightId = await fetch(url)
+        .then(res => res.json())
+        return flightId
+    }   catch (error) {
+        console.log(error)
+    }
+}
+
 async function getData () {
     try {
         const url = "https://flights-api-production.up.railway.app/api/flights"
@@ -23,17 +34,22 @@ function searchFlights(flights, data){
     )
     return flightsResult.length ? flightsResult : {message: 'No flight available'}
   }
+
   function searchByPrice (stateFlights, prices){
     const result = stateFlights.filter( (flight) => flight.price >= prices.minPrice && flight.price <= prices.maxPrice)
     return result.length ? result : {message: 'There is not flights for that range of prices'}
   }
 
-  function orderByHour (stateFlights, orderType) {
-    const orderHour = orderType === '00:24' ?
-    stateFlights.sort((a, b) => a.date.slice(11, 19).split(':').join('') - b.date.slice(11, 19).split(':').join(''))
-    :
-    stateFlights.sort((a, b) => b.date.slice(11, 19).split(':').join('') - a.date.slice(11, 19).split(':').join(''))
-    return orderHour
+  function orderByHour (stateFlights, hour) {
+    //hour = '17:00' o '04:00'
+    let range = [parseInt(hour) +2, parseInt(hour) -2]
+    console.log(range[0].toString().length)
+    range = [range[0].toString().length === 1? '0' + range[0].toString() + ':00' : range[0].toString() + ':00',
+            range[1].toString().length === 1 ? '0' + range[1].toString() + ':00' : range[1].toString() + ':00'
+    ]
+    const flightsHour = stateFlights.filter( (flight) => flight.date.slice(11, 16) < range[0] && flight.date.slice(11, 16) > range[1] )
+    return flightsHour.length ? flightsHour : {message: 'There is not flights for that time range'}
   }
 
   export { getData, searchFlights, sortPrice, searchByPrice, orderByHour};
+  
