@@ -51,5 +51,4 @@ function searchFlights(flights, data){
     return flightsHour.length ? flightsHour : {message: 'There is not flights for that time range'}
   }
 
-  export { getData, searchFlights, sortPrice, searchByPrice, orderByHour};
-  
+  export { getData, searchFlights, sortPrice, searchByPrice, orderByHour, getFlightId};

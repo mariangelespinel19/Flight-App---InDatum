@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Bienvenido a InDatumFlight</h1>
+      <h1>Bienvenido a InDatumAirlinest</h1>
       <SearchBar />
     </div>
   );
