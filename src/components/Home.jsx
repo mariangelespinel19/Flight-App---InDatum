@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getData } from "../utils/getData";
 import SearchBar from "./SearchBar";
-git 
 /* The Home component is exported. 
 Through the useState we store the information returned by the execution of the getData function that is executed inside the useEfect, that is, when the component is mounted.
 The getData function makes the call to the API and returns the information in JavaScript format.
