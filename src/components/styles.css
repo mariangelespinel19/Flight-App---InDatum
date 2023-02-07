@@ -8,8 +8,8 @@
     color: white;
     position: fixed;
     display: flex;
-    /* padding-bottom: 2rem;
-    padding-top: 2rem; */
+    padding-bottom: 2rem;
+    padding-top: 2rem;
     flex: grid;
     z-index: 2;
   }
@@ -44,8 +44,6 @@
     }
   
   .flights__card {
-    min-width: 300px;
-    min-height:300px;
     padding: 1rem;
     border: 1px solid gray;
     border-radius: 10px;
