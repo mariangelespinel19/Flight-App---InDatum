@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { getData } from "../utils/getData.js";
 import SearchBar from "./SearchBar.jsx";
 
-/* Se exporta el componente Home. 
-A través del useState guardamos la información que retorna la ejecución de la función getData que se ejecuta dentro del useEfect, es decir cuando se monta el componente
-La función getData hace el llamado a la API y retorna la información en formato JavaScript
+/* The Home component is exported. 
+Through the useState we store the information returned by the execution of the getData function that is executed inside the useEfect, that is, when the component is mounted.
+The getData function makes the call to the API and returns the information in JavaScript format.
 
-Home tiene un componente hijo llamado SearchBar al cual le pasa por props la información almacenada en el state DataGlobal
+Home has a child component called SearchBar to which the information stored in the state DataGlobal is passed by props. 
 */
 export const Home = () => {
   const [dataGlobal, setDataGlobal] = useState([]);

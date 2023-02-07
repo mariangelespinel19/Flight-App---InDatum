@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getFlightId, exChangeRate } from "../utils/getData";
 
+// the modal creates a window in which a summary of the flight information selected by the user will be displayed when clicking on the "buy" button.
 const Modal = ({ id, setModal }) => {
   const [detail, setDetailFlight] = useState();
   const [buttonBuy, setButtonBuy] = useState(true);
@@ -20,6 +21,7 @@ const Modal = ({ id, setModal }) => {
     }
   }, [id]);
 
+//   calculate the number of gained miles, obtains the exchange rate of COP, and sets the buyFlight state object with the updated values, including the selected currency, the final price, and the gained miles
   const handleCurrency = async (event) => {
     setButtonBuy(false);
     const gainedMiles = Math.round(detail.price / 1.67);
@@ -35,7 +37,7 @@ const Modal = ({ id, setModal }) => {
       indatumMiles: gainedMiles,
     });
   };
-
+// store data in the local storage of the browser
   const handleSaveData = () => {
     localStorage.setItem(
       "indatum-flights-reservation",

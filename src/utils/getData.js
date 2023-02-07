@@ -45,7 +45,7 @@ function searchFlights(flights, data){
     flight.cityTo.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(data.cityDestination.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()) &&
     flight.date.slice(0, 10) === data.date
   )
-  return flightsResult.length ? flightsResult : {message: 'No hay vuelos disponibles'}
+  return flightsResult.length ? flightsResult : {message: 'There is not flight for your request'}
 }
 
 function searchByPrice( stateFlights, prices ){ 
@@ -61,7 +61,7 @@ function orderByHour( stateFlights, hour) {
           range[1].toString().length === 1 ? '0' + range[1].toString() + ':00' : range[1].toString() + ':00'
       ]
   const flightsHour = stateFlights.filter( (flight) => flight.date.slice(11, 16) < range[0] && flight.date.slice(11, 16) > range[1] )
-  return flightsHour.length ? flightsHour : {message: 'No hay vuelos para ese rango horario'}
+  return flightsHour.length ? flightsHour : {message: 'There is not flights for that range hour'}
 }
 
 export { getData, searchFlights, sortPrice, searchByPrice, orderByHour, getFlightId, exChangeRate };
