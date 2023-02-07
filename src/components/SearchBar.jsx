@@ -97,7 +97,7 @@ const SearchBar = ({ flights }) => {
     <div>
       <header className="navbar">
         <h1 className="navbar__title">Hi World</h1>
-        <div className="navbar__info">
+        {/* <div className="navbar__info"> */}
           <div className="navbar__vuelos">
             <h1>Search flights</h1>
             <label htmlFor="">CityFrom</label>
@@ -212,7 +212,7 @@ const SearchBar = ({ flights }) => {
             <p>Results will be in the range of two hours.</p>
             <button onClick={handleOrderHour}>Buscar por hora</button>
           </div>
-        </div>
+        {/* </div> */}
       </header>
       <div>
         {Array.isArray(searchResults) ? (
